@@ -17,6 +17,7 @@ import javax.enterprise.context.RequestScoped;
 public class IndexController {
 
     private String nombre;
+    private String apellido;
     /**
      * Creates a new instance of IndexController
      */
@@ -25,6 +26,7 @@ public class IndexController {
 
     public void click (){
         System.out.println("Nombre :"+ this.nombre);
+        System.out.println("Apellido: " + this.apellido);
     }
     public String getNombre() {
         return nombre;
@@ -32,6 +34,14 @@ public class IndexController {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
     
 }
