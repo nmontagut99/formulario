@@ -15,6 +15,7 @@ import javax.faces.model.SelectItem;
  *
  * @author MontagutN
  */
+
 @Named(value = "indexController")
 @RequestScoped
 public class IndexController {
@@ -26,13 +27,18 @@ public class IndexController {
     //private int nacimiento;
     private String estudios;
     private List<SelectItem> listaEstudios;
-    
+    private String idiomas;
+    private List<SelectItem> listaIdiomas;
+    private byte dias;
+    private byte sueldobase;
     
     public IndexController() {
         // aca se inicializan las variables 
         //ej: arriba se declara private int cedula;
         //aca se inicializa this.cedula=0;
-        this.cedula=0; 
+        this.cedula=0;
+        this.dias=0;
+        this.sueldobase=(byte) 30000;
     }
 
     public void click (){
@@ -42,6 +48,8 @@ public class IndexController {
         
         //System.out.println("fecha nacimiento:"+nacimiento); falta declarar, implementar, asignar valor, get y set
         System.out.println("estudios: "+this.estudios);
+        System.out.println("Idiomas: "+this.idiomas);
+        System.out.println("Dias trabajados: "+this.dias);
         
     }
     
@@ -55,6 +63,14 @@ public class IndexController {
         listaEstudios.add(new SelectItem(6, "Magister"));
     }
     
+    public void listaidiomas(){
+        listaIdiomas = new ArrayList<SelectItem>();
+	listaIdiomas.add(new SelectItem(2, "Ingles"));
+	listaIdiomas.add(new SelectItem(3, "Frances"));
+        System.out.println("\n");
+	listaIdiomas.add(new SelectItem(4, "Chino"));
+        listaIdiomas.add(new SelectItem(5, "Ruso"));
+    }
     
     public int getCedula() {
         return cedula;
@@ -95,5 +111,30 @@ public class IndexController {
     public void setListaEstudios(List<SelectItem> listaEstudios) {
         this.listaEstudios = listaEstudios;
     }
+
+    public String getIdiomas() {
+        return idiomas;
+    }
+
+    public void setIdiomas(String idiomas) {
+        this.idiomas = idiomas;
+    }
+
+    public List<SelectItem> getListaIdiomas() {
+        return listaIdiomas;
+    }
+
+    public void setListaIdiomas(List<SelectItem> listaIdiomas) {
+        this.listaIdiomas = listaIdiomas;
+    }
+
+    public byte getDias() {
+        return dias;
+    }
+
+    public void setDias(byte dias) {
+        this.dias = dias;
+    }
+    
     
 }
