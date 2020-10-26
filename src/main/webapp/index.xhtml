@@ -9,39 +9,72 @@
     <h:head>
         <title>Formulario salario empleado</title>
     </h:head>
-    <h:body>
+    <style>
+        .dives{
+            text-align: left;
+            float: center;
+            border-radius: 38px;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        .divess{
+            text-align: center;
+            float: center;
+            margin-left:120px;
+            margin-right:120px;
+            margin-bottom: 50px;
+            margin-top: 20px;
+        }
+        .lege{
+            font-family: fantasy,var,serif;
+            text-transform: uppercase;
+            margin-left: 30px;
+        }
+    </style>
+    
+        <h:body>
         <h:form>
-        <h2> FORMULARIO SALARIO EMPRLEADOS </h2> 
+        <h2 class="lege"> FORMULARIO SALARIO EMPRLEADOS </h2> 
         <hr></hr>
         <!--cajas de texto-->
-        Cedula :
-        <h:inputText value="#{indexController.cedula}"/>
-        <br></br>
-        Nombre :
-        <h:inputText value="#{indexController.nombre}"/>
-        <br></br>
-        Apellido: 
-        <h:inputText value="#{indexController.apellido}"/>
-        <br></br>
-        Fecha nacimiento:
-        <br></br>
-        Estudios :<!--etiqueta que genera select para elegir el nivel de estudio-->
-        <h:selectOneMenu value="#{indexController.listaestudios()}">
-            <f:selectItems value="#{indexController.listaEstudios}" />
-        </h:selectOneMenu>
-        <br></br>
-        Idiomas :<!--etiqueta que genera Checkbox para elegir los idiomas-->
-        <h:selectManyCheckbox value="#{indexController.listaidiomas()}">
-            <f:selectItems value="#{indexController.listaIdiomas}" />
-        </h:selectManyCheckbox>
-        <br></br>
-        Dias trabajados :
-        <h:inputText value="#{indexController.dias}"/>
-        <br></br>
-        <br><p></p></br>
-        <!--Boton para enviar la informacion-->
-        <h:commandButton actionListener="#{indexController.click()}" value="Registro"/>
-        <br></br>
+        <fieldset class="dives">
+            <legend class="lege">Datos empleado</legend>
+                <div class="dives">
+                    <h5>Cedula:</h5>
+                        <h:inputText value="#{indexController.cedula}"/>
+                    <h5>Nombre:</h5>
+                        <h:inputText value="#{indexController.nombre}"/>
+                    <h5>Apellido:</h5>
+                        <h:inputText value="#{indexController.apellido}"/>
+                    <h5>Fecha nacimiento:</h5>
+                        <input type="date" name=""></input>
+                    <br></br>
+                </div>
+        </fieldset>
+        
+        <fieldset class="dives">
+            <legend class="lege">Datos adicionales</legend>
+            <div class="dives">
+                <h5>Nivel de estudios:</h5>
+                <h:selectOneMenu value="#{indexController.listaestudios()}">
+                    <f:selectItems value="#{indexController.listaEstudios}"/>
+                </h:selectOneMenu>
+                <h5>Idiomas:</h5>
+                <h:selectManyCheckbox value="#{indexController.listaidiomas()}">
+                    <f:selectItems value="#{indexController.listaIdiomas}" />
+                </h:selectManyCheckbox>
+                <h5>Dias trabajados:</h5>
+                <h:inputText value="#{indexController.dias}"/>
+            </div>
+        </fieldset>
+        
+        <fieldset class="divess">
+            <legend class="lege">Si completo el formulario por favor de click en el boton 'Registro'</legend>
+            <!--Boton para enviar la informacion-->
+            <h:commandButton actionListener="#{indexController.click()}" value="Registro"/>
+            <br></br>
+        </fieldset>
+        
         </h:form>
     </h:body>
 </html>

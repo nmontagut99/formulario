@@ -43,13 +43,13 @@ public class IndexController {
 
     public void click (){
         System.out.println("Cedula:"+ this.cedula);
-        System.out.println("Nombre:"+ this.nombre);
+        /*System.out.println("Nombre:"+ this.nombre);
         System.out.println("Apellido:" + this.apellido);
         
         //System.out.println("fecha nacimiento:"+nacimiento); falta declarar, implementar, asignar valor, get y set
         System.out.println("estudios: "+this.estudios);
         System.out.println("Idiomas: "+this.idiomas);
-        System.out.println("Dias trabajados: "+this.dias);
+        System.out.println("Dias trabajados: "+this.dias);*/
         
     }
     
@@ -67,7 +67,6 @@ public class IndexController {
         listaIdiomas = new ArrayList<SelectItem>();
 	listaIdiomas.add(new SelectItem(2, "Ingles"));
 	listaIdiomas.add(new SelectItem(3, "Frances"));
-        System.out.println("\n");
 	listaIdiomas.add(new SelectItem(4, "Chino"));
         listaIdiomas.add(new SelectItem(5, "Ruso"));
     }
