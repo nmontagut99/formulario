@@ -7,10 +7,18 @@
     </h:head>
     <h:body>
         <h:form>
-        Hello from Facelets
+        <h2> FORMULARIO REGISTRO EMPRLEADOS </h2> 
+        <hr></hr>
+        <!--cajas de texto-->
+        Nombre :
         <h:inputText value="#{indexController.nombre}"/>
+        <br></br>
+        Apellido: 
         <h:inputText value="#{indexController.apellido}"/>
+        <br><p></p></br>
+        <!--Boton para enviar la informacion-->
         <h:commandButton actionListener="#{indexController.click()}" value="Registro"/>
+        <br></br>
         </h:form>
     </h:body>
 </html>
