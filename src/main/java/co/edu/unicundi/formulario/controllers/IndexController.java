@@ -5,15 +5,11 @@
  */
 package co.edu.unicundi.formulario.controllers;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.model.SelectItem;
-
 /**
- *
- * @author MontagutN
+ * Versión 2.0.0
+ * @author Montagut Nicolás / Trejos Joseph
  */
 
 @Named(value = "indexController")
@@ -23,40 +19,72 @@ public class IndexController {
     private String nombre;//cada variable debe tener un metodo get y set
     private String apellido;
     private String estudios;
-    private String idiomas;
     private int cedula;
     private int dias;
     private int sueldobase;
-    private List<String> listaIdiomas;
-    private List<String> idiomasSeleccionados;
+    private int salario;
+    private int cont;
+    private String [] listaIdiomas;
+    //private List<String> idiomasSeleccionados;
     //private int nacimiento;
     
     //private List<SelectItem> listaEstudios;
     
-    
-    
     public IndexController() {
-        idiomasSeleccionados = new ArrayList<String>();
-        idiomasSeleccionados.add("Ingles");
-        idiomasSeleccionados.add("Francés");
-        idiomasSeleccionados.add("Alemán");
-        this.cedula=0;
-        this.dias=0;
-        this.sueldobase= 30000;
+        cedula = 0;
+        dias = 0;
+        sueldobase = 30000;
     }
 
     public void click (){
-        System.out.println("Cedula:"+ this.cedula);
-        System.out.println("Nombre:"+ this.nombre);
-        System.out.println("Apellido:" + this.apellido);
+        System.out.println("Cedula: "+ cedula + " ");
+        System.out.println("Nombre: "+ nombre);
+        System.out.println("Apellido: " + apellido);
+        System.out.println("Idiomas: ");
         
         //System.out.println("fecha nacimiento:"+nacimiento); falta declarar, implementar, asignar valor, get y set
+        language();
         System.out.println("Estudios: "+this.estudios);
-        System.out.println("Idiomas: "+this.idiomas);
         System.out.println("Dias trabajados: "+this.dias);
-        
     }
    
+    public void calcular(){
+        salario = sueldobase *dias;
+        cont = listaIdiomas.length;
+        for (byte i = 0; i < cont; i++) {
+            salario = salario + 3000;
+        }
+        
+        switch(estudios){
+            case "Tecnico":
+                salario = salario + 1000;
+                break;
+            case "Tecnologo":
+                salario = salario + 2000;
+                break;
+            case "Profesional":
+                salario = salario + 3000;
+                break;
+            case "Master":
+                salario = salario + 4000;
+                break;                
+            default:
+                break;
+        }
+        
+        imprimeSalario(salario);
+    }
+    
+    public void language(){
+        for(String idioma: listaIdiomas){
+            System.out.println(idioma);
+        }
+    }
+    
+    private void imprimeSalario(int salario) {
+        System.out.println(salario);
+    }
+    
     public int getCedula() {
         return cedula;
     }
@@ -89,14 +117,6 @@ public class IndexController {
         this.estudios = estudios;
     }
 
-    public String getIdiomas() {
-        return idiomas;
-    }
-
-    public void setIdiomas(String idiomas) {
-        this.idiomas = idiomas;
-    }
-
     public int getDias() {
         return dias;
     }
@@ -105,14 +125,14 @@ public class IndexController {
         this.dias = dias;
     }
 
-    public List<String> getListaIdiomas() {
+    public String[] getListaIdiomas() {
         return listaIdiomas;
     }
 
-    public void setListaIdiomas(List<String> listaIdiomas) {
+    public void setListaIdiomas(String[] listaIdiomas) {
         this.listaIdiomas = listaIdiomas;
     }
-
+    
     public int getSueldobase() {
         return sueldobase;
     }
@@ -120,13 +140,23 @@ public class IndexController {
     public void setSueldobase(int sueldobase) {
         this.sueldobase = sueldobase;
     }
+    
+    
 
-    public List<String> getIdiomasSeleccionados() {
+    /*public List<String> getIdiomasSeleccionados() {
         return idiomasSeleccionados;
     }
 
     public void setIdiomasSeleccionados(List<String> idiomasSeleccionados) {
         this.idiomasSeleccionados = idiomasSeleccionados;
+    }*/
+
+    public int getSalario() {
+        return salario;
     }
-    
+
+    public void setSalario(int salario) {
+        this.salario = salario;
+    }
+   
 }

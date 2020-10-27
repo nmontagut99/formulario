@@ -5,24 +5,53 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
     <head>
         <title>Resultados</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
+    <style>
+        .dives{
+            text-align: left;
+            float: center;
+            border-radius: 38px;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        .divess{
+            text-align: center;
+            float: center;
+            margin-left:120px;
+            margin-right:120px;
+            margin-bottom: 50px;
+            margin-top: 20px;
+        }
+        .lege{
+            font-family: fantasy,var,serif;
+            text-transform: uppercase;
+            margin-left: 30px;
+        }
+    </style>
     <body>
         <fieldset class="dives">
             <legend class="lege">Datos empleado</legend>
             <div class="dives">
-                <h5>Cedula:</h5>
-                <h5 id="cedula"> </h5>
-                <h6>#{indexController.cedula}"</h6>
-                <h5>Nombre:</h5>
-                <h6>#{indexController.nombre}"</h6>
-                <h5>Apellido:</h5>
-                <h6>#{indexController.apellido}"</h6>
-                <h5>Apellido:</h5>
-                <h6>#{indexController.apellido}"</h6>
+                <h3>Cedula:</h3>
+                <h4>#{indexController.cedula}</h4>
+                <h3>Nombre:</h3>
+                <h4>#{indexController.nombre}</h4>
+                <h3>Apellido:</h3>
+                <h4>#{indexController.apellido}</h4>
+                <h3>Nivel de estudios:</h3>
+                <h4>#{indexController.estudios}</h4>
+                <h3>Idiomas:</h3>
+                <h4>#{indexController.language()}</h4>
+                <h3>Salario:</h3>
+                #{indexController.calcular()}
+                <h4>#{indexController.salario}</h4>
                 <!--<h5>Fecha nacimiento:</h5> cajas de texto-->
                 <!--    <input type="date" name=""></input>-->
                 <br></br>
