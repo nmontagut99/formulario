@@ -39,19 +39,11 @@ and open the template in the editor.
         <fieldset class="dives">
             <legend class="lege">Datos empleado</legend>
             <div class="dives">
-                <h3>Cedula:</h3>
-                <h4>#{indexController.cedula}</h4>
-                <h3>Nombre:</h3>
-                <h4>#{indexController.nombre}</h4>
-                <h3>Apellido:</h3>
-                <h4>#{indexController.apellido}</h4>
-                <h3>Nivel de estudios:</h3>
-                <h4>#{indexController.estudios}</h4>
-                <h3>Idiomas:</h3>
-                <h4>#{indexController.language()}</h4>
-                <h3>Salario:</h3>
-                #{indexController.calcular()}
-                <h4>#{indexController.salario}</h4>
+                <p>Señor #{indexController.nombre} #{indexController.apellido}
+                identificado con la cedula #{indexController.cedula} 
+                su salario es: 
+                #{indexController.calcular()} <bold>#{indexController.salario}</bold></p>
+                
                 <!--<h5>Fecha nacimiento:</h5> cajas de texto-->
                 <!--    <input type="date" name=""></input>-->
                 <br></br>
