@@ -5,7 +5,7 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
-    
+
     <h:head>
         <title>Formulario salario empleado</title>
     </h:head>
@@ -31,50 +31,56 @@
             margin-left: 30px;
         }
     </style>
-    
-        <h:body>
+
+    <h:body>
         <h:form>
-        <h2 class="lege"> FORMULARIO SALARIO EMPRLEADOS </h2> 
-        <hr></hr>
-        <!--cajas de texto-->
-        <fieldset class="dives">
-            <legend class="lege">Datos empleado</legend>
+            <h2 class="lege"> FORMULARIO SALARIO EMPRLEADOS </h2> 
+            <hr></hr>
+            <!--cajas de texto-->
+            <fieldset class="dives">
+                <legend class="lege">Datos empleado</legend>
                 <div class="dives">
                     <h5>Cedula:</h5>
-                        <h:inputText value="#{indexController.cedula}"/>
+                    <h:inputText value="#{indexController.cedula}"/>
                     <h5>Nombre:</h5>
-                        <h:inputText value="#{indexController.nombre}"/>
+                    <h:inputText value="#{indexController.nombre}"/>
                     <h5>Apellido:</h5>
-                        <h:inputText value="#{indexController.apellido}"/>
-                    <h5>Fecha nacimiento:</h5>
-                        <input type="date" name=""></input>
+                    <h:inputText value="#{indexController.apellido}"/>
+                    <!--<h5>Fecha nacimiento:</h5> cajas de texto-->
+                    <!--    <input type="date" name=""></input>-->
                     <br></br>
                 </div>
-        </fieldset>
-        
-        <fieldset class="dives">
-            <legend class="lege">Datos adicionales</legend>
-            <div class="dives">
-                <h5>Nivel de estudios:</h5>
-                <h:selectOneMenu value="#{indexController.listaestudios()}">
-                    <f:selectItems value="#{indexController.listaEstudios}"/>
-                </h:selectOneMenu>
-                <h5>Idiomas:</h5>
-                <h:selectManyCheckbox value="#{indexController.listaidiomas()}">
-                    <f:selectItems value="#{indexController.listaIdiomas}" />
-                </h:selectManyCheckbox>
-                <h5>Dias trabajados:</h5>
-                <h:inputText value="#{indexController.dias}"/>
-            </div>
-        </fieldset>
-        
-        <fieldset class="divess">
-            <legend class="lege">Si completo el formulario por favor de click en el boton 'Registro'</legend>
-            <!--Boton para enviar la informacion-->
-            <h:commandButton actionListener="#{indexController.click()}" value="Registro"/>
-            <br></br>
-        </fieldset>
-        
+            </fieldset>
+
+            <fieldset class="dives">
+                <legend class="lege">Datos adicionales</legend>
+                <div class="dives">
+                    <h5>Nivel de estudios:</h5>
+                    <h:selectOneMenu value="#{indexController.estudios}">
+                        <f:selectItem itemLabel="Primaria" itemValue="1" />
+                        <f:selectItem itemLabel="Secundario" itemValue="2" />
+                        <f:selectItem itemLabel="Tecnico" itemValue="3" />
+                        <f:selectItem itemLabel="Tecnologo" itemValue="4" />
+                        <f:selectItem itemLabel="Profesional" itemValue="5" />
+                        <f:selectItem itemLabel="Master" itemValue="6" />
+                    </h:selectOneMenu>
+                    <h5>Idiomas:</h5>
+                    <h:selectManyCheckbox value="#{indexController.listaIdiomas}">
+                        <f:selectItems value="#{indexController.idiomasSeleccionados}" />
+                    </h:selectManyCheckbox>
+                    <h5>Dias trabajados:</h5>
+                    <h:inputText value="#{indexController.dias}"/>
+                </div>
+            </fieldset>
+
+            <fieldset class="divess">
+                <legend class="lege">Si completo el formulario por favor de click en el boton 'Registro'</legend>
+                <!--Boton para enviar la informacion-->
+                <h:commandButton action="/resultados" actionListener="#{indexController.click()}"  value="Registro"/>
+                                
+                <br></br>
+            </fieldset>
+
         </h:form>
     </h:body>
 </html>
